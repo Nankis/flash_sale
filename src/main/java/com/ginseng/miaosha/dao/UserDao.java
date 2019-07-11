@@ -8,11 +8,8 @@ import org.apache.ibatis.annotations.Select;
 
 @Mapper
 public interface UserDao {
-
-    @Select("select * from user where id = #{id}")
-    public User getById(@Param("id") int id) ;
-
-
-    @Insert("insert into user(id,name)values(#{id},#{name})")
-    public int insert(User user);
+	@Select("select * from t_user where id=#{id}")//@Param("id")进行引用
+	public User getById(@Param("id") int id);
+	@Insert("insert into t_user(id,name) values(#{id},#{name})")  //id为自增的，所以可以不用设置id
+	public void insert(User user);
 }

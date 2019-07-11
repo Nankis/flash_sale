@@ -1,20 +1,18 @@
 package com.ginseng.miaosha.redis;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 @Component
-@ConfigurationProperties(prefix="redis")
-//@PropertySource("classpath:application.properties")
+@ConfigurationProperties(prefix="redis")//将application.properties里面前缀redis都读取
 public class RedisConfig {
 	private String host;
 	private int port;
-	private int timeout;//秒
+	private int timeout;
 	private String password;
 	private int poolMaxTotal;
-	private int poolMaxIdle;
-	private int poolMaxWait;//秒
+	private int poolMaxldle;
+	private int poolMaxWait;
 	public String getHost() {
 		return host;
 	}
@@ -45,11 +43,11 @@ public class RedisConfig {
 	public void setPoolMaxTotal(int poolMaxTotal) {
 		this.poolMaxTotal = poolMaxTotal;
 	}
-	public int getPoolMaxIdle() {
-		return poolMaxIdle;
+	public int getPoolMaxldle() {
+		return poolMaxldle;
 	}
-	public void setPoolMaxIdle(int poolMaxIdle) {
-		this.poolMaxIdle = poolMaxIdle;
+	public void setPoolMaxldle(int poolMaxldle) {
+		this.poolMaxldle = poolMaxldle;
 	}
 	public int getPoolMaxWait() {
 		return poolMaxWait;
@@ -57,4 +55,6 @@ public class RedisConfig {
 	public void setPoolMaxWait(int poolMaxWait) {
 		this.poolMaxWait = poolMaxWait;
 	}
+	
+	
 }

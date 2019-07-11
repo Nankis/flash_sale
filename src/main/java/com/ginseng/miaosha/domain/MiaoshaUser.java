@@ -5,12 +5,19 @@ import java.util.Date;
 public class MiaoshaUser {
 	private Long id;
 	private String nickname;
-	private String password;
+	private String pwd;
 	private String salt;
 	private String head;
 	private Date registerDate;
 	private Date lastLoginDate;
 	private Integer loginCount;
+	
+	public String getPwd() {
+		return pwd;
+	}
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
+	}
 	public Long getId() {
 		return id;
 	}
@@ -23,12 +30,7 @@ public class MiaoshaUser {
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
 	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
+	
 	public String getSalt() {
 		return salt;
 	}
@@ -59,4 +61,7 @@ public class MiaoshaUser {
 	public void setLoginCount(Integer loginCount) {
 		this.loginCount = loginCount;
 	}
+	
+	
+	
 }

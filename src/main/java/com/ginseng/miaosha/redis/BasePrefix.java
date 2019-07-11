@@ -1,27 +1,26 @@
 package com.ginseng.miaosha.redis;
-
+//定义成抽象类
 public abstract class BasePrefix implements KeyPrefix{
-	
 	private int expireSeconds;
-	
 	private String prefix;
-	
-	public BasePrefix(String prefix) {//0代表永不过期
-		this(0, prefix);
+	public BasePrefix() {
 	}
-	
-	public BasePrefix( int expireSeconds, String prefix) {
-		this.expireSeconds = expireSeconds;
-		this.prefix = prefix;
+	public BasePrefix(String prefix) {
+		//this(0, prefix);//默认使用0，不会过期
+		this.expireSeconds=0;
+		this.prefix=prefix;		
 	}
-	
-	public int expireSeconds() {//默认0代表永不过期
+	public BasePrefix(int expireSeconds,String prefix) {//覆盖了默认的构造函数
+		this.expireSeconds=expireSeconds;
+		this.prefix=prefix;
+	}
+	//默认为0代表永不过期
+	public int expireSeconds() {
 		return expireSeconds;
 	}
-
+	//前缀为类名:+prefix
 	public String getPrefix() {
-		String className = getClass().getSimpleName();
-		return className+":" + prefix;
+		String className=getClass().getSimpleName();
+		return className+":"+prefix;
 	}
-
 }
